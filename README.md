@@ -22,11 +22,11 @@ docker run -d \
      --device=/dev/net/tun --cap-add=NET_ADMIN \
      -v /etc/localtime:/etc/localtime:ro \
      -p 8888:8118 \
-	 -e PROVIDER=my_vpn_provider \
+     -e PROVIDER=my_vpn_provider \
      -e SERVER=my_vpn_server \
      -e USERNAME=my_vpn_username \
      -e PASSWORD=my_vpn_password \
-	 --restart unless-stopped \
+     --restart unless-stopped \
      --name openvpn-privoxy malvinas2/openvpn-privoxy
 ```
 
