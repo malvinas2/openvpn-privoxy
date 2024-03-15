@@ -3,7 +3,14 @@
 Docker container for setting up a [Privoxy](https://www.privoxy.org/) proxy that pushes traffic over an
 [OpenVPN](https://openvpn.net/) connection.
 
-Build Docker image:
+To pull the image from Docker Hub, run
+
+```
+docker pull malvinas2/openvpn-privoxy
+```
+
+To build the Docker image yourself: 
+
 ```
 docker build -t malvinas2/openvpn-privoxy .
 ```
