@@ -1,0 +1,8 @@
+confdir /etc/privoxy
+logdir /var/log/privoxy
+logfile privoxy.log
+listen-address  0.0.0.0:8118
+#debug   1    # show each GET/POST/CONNECT request
+debug   4096 # Startup banner and warnings
+#keep-alive-timeout 5
+#tolerate-pipelining 1
