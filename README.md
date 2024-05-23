@@ -3,7 +3,14 @@
 Docker container for setting up a [Privoxy](https://www.privoxy.org/) proxy that pushes traffic over an
 [OpenVPN](https://openvpn.net/) connection.
 
-Build Docker image:
+To pull the image from Docker Hub, run
+
+```
+docker pull malvinas2/openvpn-privoxy
+```
+
+To build the Docker image yourself: 
+
 ```
 docker build -t malvinas2/openvpn-privoxy .
 ```
@@ -15,11 +22,11 @@ docker run -d \
      --device=/dev/net/tun --cap-add=NET_ADMIN \
      -v /etc/localtime:/etc/localtime:ro \
      -p 8888:8118 \
-	 -e PROVIDER=my_vpn_provider \
+     -e PROVIDER=my_vpn_provider \
      -e SERVER=my_vpn_server \
      -e USERNAME=my_vpn_username \
      -e PASSWORD=my_vpn_password \
-	 --restart unless-stopped \
+     --restart unless-stopped \
      --name openvpn-privoxy malvinas2/openvpn-privoxy
 ```
 
@@ -33,7 +40,7 @@ services:
     image: malvinas2/openvpn-privoxy
     container_name: openvpn-privoxy
     environment:
-	  - PROVIDER=xxxxxxxxxxxxxxxxxxxxxxxx
+      - PROVIDER=xxxxxxxxxxxxxxxxxxxxxxxx
       - SERVER=xxxxxxxxxxxxxxxxxxxxxxxx
       - USERNAME=xxxxxxxxxxxxxxxxxxxxxxxx
       - PASSWORD=xxxxxxxxxxxxxxxxxxxxxxxx
@@ -119,8 +126,8 @@ Default: _empty_
 
 If you want to expose your proxy server to your local network, you need to
 specify that network in `HOST_NETWORK`, so that it can be routed back through
-your Docker network. E.g. if your LAN uses the 10.0.0.0/8 network, add
-`-e HOST_NETWORK=10.0.0.0/8` to your `docker run` command.
+your Docker network. E.g. if your LAN uses the 192.168.1.0/24 network, add
+`-e HOST_NETWORK=192.168.1.0/24` to your `docker run` command.
 
 Default: _empty_ (no network is routed)
 
